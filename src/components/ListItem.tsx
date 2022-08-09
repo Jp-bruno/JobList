@@ -1,4 +1,22 @@
-export default function ListItem({ data }: any) {
+type ListItemProps = {
+    data: {
+        id: number,
+        company: string,
+        logo: string,
+        new: boolean,
+        featured: boolean,
+        position: string,
+        role: string,
+        level: string,
+        postedAt: string,
+        contract: string,
+        location: string,
+        languages: string[],
+        tools: string[] | []
+    }
+}
+
+export default function ListItem({ data }: ListItemProps) {
     return (
         <>
             <li className='list_item'>
@@ -45,12 +63,12 @@ export default function ListItem({ data }: any) {
                         {
                             data.tools.length < 1 ?
                                 data.tools.map((element: any) => {
-                                    <span className='job_tool'>
-                                        {element}
-                                    </span>
-                                }
-
-                                )
+                                    return (
+                                        <span className='job_tool'>
+                                            {element}
+                                        </span>
+                                    )
+                                })
                                 :
                                 null
                         }
