@@ -13,10 +13,12 @@ type ListItemProps = {
         location: string,
         languages: string[],
         tools: string[] | []
-    }
+    },
+    addFilter: (event:any) => void
 }
 
-export default function ListItem({ data }: ListItemProps) {
+export default function ListItem({ data, addFilter }: ListItemProps) {
+
     return (
         <>
             <li className='list_item'>
@@ -54,26 +56,26 @@ export default function ListItem({ data }: ListItemProps) {
                     </div>
 
                     <div className='list_item_job_tools'>
-                        <span className='job_tool'>
+                        <button key={Math.random() * 1000} className='job_tool' onClick={addFilter} data-itemname={data.role}>
                             {data.role}
-                        </span>
-                        <span className='job_tool'>
+                        </button>
+                        <button key={Math.random() * 1000} className='job_tool' onClick={addFilter} data-itemname={data.level}>
                             {data.level}
-                        </span>
+                        </button>
                         {
                             data.tools.length < 1 ?
-                                data.tools.map((element: any) => {
+                                data.tools.map((element: string) => {
                                     return (
-                                        <span className='job_tool'>
+                                        <button key={Math.random() * 1000} className='job_tool' onClick={addFilter} data-itemname={element}>
                                             {element}
-                                        </span>
+                                        </button>
                                     )
                                 })
                                 :
                                 null
                         }
                         {
-                            data.languages.map((element: any) => <span className='job_tool'>{element}</span>)
+                            data.languages.map((element: string) => <button key={Math.random() * 1000} className='job_tool' onClick={addFilter} data-itemname={element}>{element}</button>)
                         }
                     </div>
                 </div>

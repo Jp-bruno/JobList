@@ -4,31 +4,45 @@
   font-family: 'League Spartan', sans-serif;
 }
 
+:root {
+  --header-background-color: hsl(180, 29%, 50%);
+  --main-content-background-color: hsl(180, 52%, 96%);
+  --featured-background-color: hsl(180, 14%, 20%);
+  --list-item-more-color: hsl(180, 8%, 52%);
+  --base-width: 70%;
+  --base-shadow: 0px 20px 20px rgba(0, 0, 0, 0.086);
+}
+
 .header {
-  background-color: hsl(180, 29%, 50%);
+  background-color: var(--header-background-color);
   width: 100%;
   overflow: hidden;
 }
 
 main.content {
-  background-color: hsl(180, 52%, 96%);
+  background-color: var(--main-content-background-color);
   padding-bottom: 100px;
 }
 
 .list {
-  width: 70%;
+  width: var(--base-width);
   margin-inline: auto;
-  padding-top: 50px;
   display: flex;
   flex-direction: column;
   row-gap: 25px;
+}
+
+.list:not(.filtered) {
+  padding-top: 30px;
 }
 
 .list_item {
   padding: 35px;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.086);
+  box-shadow: var(--base-shadow);
+  border-left: solid 0 var(--header-background-color);
+  transition: border-left-width 0.3s ease;
 }
 
 .list_item_content_wrapper {
@@ -40,11 +54,10 @@ main.content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 .list_item_title {
-  color: hsl(180, 29%, 50%);
+  color: var(--header-background-color);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -67,23 +80,24 @@ main.content {
 }
 
 .list_item_new {
-  background-color: #58A4A2;
+  background-color: var(--header-background-color);
   margin-right: 10px;
 }
 
 .list_item_featured {
-  background-color: hsl(180, 14%, 20%);
+  background-color: var(--featured-background-color);
 }
 
 .list_item_position {
-  color: hsl(180, 14%, 20%);
+  color: var(--featured-background-color);
   font-weight: 700;
   font-size: 22px;
+  transition: color 0.1s linear;
 }
 
 .list_item_more {
   font-size: 17px;
-  color: hsl(180, 8%, 52%);
+  color: var(--list-item-more-color);
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -92,24 +106,105 @@ main.content {
 .list_item_dot {
   width: 4px;
   height: 4px;
-  background-color: hsla(180, 8%, 52%, 0.561);
+  background-color: var(--list-item-more-color);
   margin-inline: 15px;
   border-radius: 20px;
+  opacity: 0.6;
 }
 
 .list_item_job_tools {
   flex-grow: 1;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .job_tool {
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
-  background-color: #e3fcfdc7;
+  background-color: var(--main-content-background-color);
   font-weight: 700;
   font-size: 15px;
-  color: #689E9E;
+  color: var(--header-background-color);
+  transition: background-color .2s ease, color .2s ease;
+  border: 0;
+}
+
+/* Filter CSS */
+
+.filter_wrapper {
+  width: var(--base-width);
+  margin-inline: auto;
+  background-color: white;
+  transform: translateY(-50%);
+  padding: 25px 40px;
+  border-radius: 4px;
+  box-shadow: var(--base-shadow);
+  transition: transform 0.3s ease;
+}
+
+.filter_wrapper:not(.on) {
+  transform: scaleX(0) translateY(-50%);
+  transform-origin: right;
+
+}
+
+.filter_wrapper.on {
+  transform: scaleX(1) translateY(-50%);
+  transform-origin: left;
+}
+
+.filter_list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 15px;
+}
+
+.filter_tag {
+  background-color: var(--main-content-background-color);
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  padding-left: 8px;
+  font-weight: 700;
+  color: var(--header-background-color)
+}
+
+.filter_tag img {
+  pointer-events: none;
+}
+
+.filter_tag_button {
+  padding: 8px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background-color: var(--header-background-color);
+  transition: background-color 0.2s ease;
+}
+
+/* hover states */
+
+.list_item_position:hover {
+  color: var(--header-background-color);
+  cursor: pointer;
+}
+
+.job_tool:hover {
+  color: var(--main-content-background-color);
+  background-color: var(--header-background-color);
+  cursor: pointer;
+}
+
+.list_item:hover {
+  border-left-width: 5px;
+}
+
+.filter_tag_button:hover {
+  background-color: var(--featured-background-color);
+  cursor: pointer;
 }
