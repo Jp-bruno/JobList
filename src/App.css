@@ -1,38 +1,115 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;700&display=swap');
+
+* {
+  font-family: 'League Spartan', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  background-color: hsl(180, 29%, 50%);
+  width: 100%;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main.content {
+  background-color: hsl(180, 52%, 96%);
+  padding-bottom: 100px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.list {
+  width: 70%;
+  margin-inline: auto;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
+  row-gap: 25px;
+}
+
+.list_item {
+  padding: 35px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.086);
+}
+
+.list_item_content_wrapper {
+  display: flex;
+  column-gap: 15px;
+}
+
+.list_item_job_description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.list_item_title {
+  color: hsl(180, 29%, 50%);
+  font-weight: 700;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.list_item_title_options {
+  display: flex;
+  margin-left: 10px;
+}
+
+.list_item_new, .list_item_featured {
+  border-radius: 20px;
   color: white;
+  padding: 5px 10px;
+  font-size: 14px;
 }
 
-.App-link {
-  color: #61dafb;
+.list_item_title_options p {
+  transform: translateY(1px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list_item_new {
+  background-color: #58A4A2;
+  margin-right: 10px;
+}
+
+.list_item_featured {
+  background-color: hsl(180, 14%, 20%);
+}
+
+.list_item_position {
+  color: hsl(180, 14%, 20%);
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.list_item_more {
+  font-size: 17px;
+  color: hsl(180, 8%, 52%);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.list_item_dot {
+  width: 4px;
+  height: 4px;
+  background-color: hsla(180, 8%, 52%, 0.561);
+  margin-inline: 15px;
+  border-radius: 20px;
+}
+
+.list_item_job_tools {
+  flex-grow: 1;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.job_tool {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e3fcfdc7;
+  font-weight: 700;
+  font-size: 15px;
+  color: #689E9E;
 }
