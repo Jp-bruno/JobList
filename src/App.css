@@ -209,3 +209,9 @@ main.content {
   background-color: var(--featured-background-color);
   cursor: pointer;
 }
+
+/* Media queries */
+
+@media (max-width: 900px) {
+  
+}
