@@ -29,9 +29,13 @@ export default function List() {
         setFilters(newArr)
     }
 
+    function clearFilters() {
+        setFilters([])
+    }
+
     return (
         <>
-            <Filter filters={filters} removeFilter={removeFilter} />
+            <Filter filters={filters} removeFilter={removeFilter} clearFilters={clearFilters} />
             <ul className={`list ${filters.length > 0 ? 'filtered' : ''}`}>
                 {
                     data.map(element =>

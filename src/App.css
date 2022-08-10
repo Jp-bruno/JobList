@@ -155,6 +155,7 @@ main.content {
 .filter_wrapper.on {
   transform: scaleX(1) translateY(-50%);
   transform-origin: left;
+  display: flex;
 }
 
 .filter_list {
@@ -162,6 +163,7 @@ main.content {
   flex-wrap: wrap;
   column-gap: 15px;
   row-gap: 15px;
+  flex-grow: 1;
 }
 
 .filter_tag {
@@ -189,6 +191,13 @@ main.content {
   transition: background-color 0.2s ease;
 }
 
+.clear_filters {
+  border: 0;
+  background-color: transparent;
+  color: var(--header-background-color);
+  font-weight: 700;
+}
+
 /* hover states */
 
 .list_item_position:hover {
@@ -209,6 +218,10 @@ main.content {
 .filter_tag_button:hover {
   background-color: var(--featured-background-color);
   cursor: pointer;
+}
+
+.clear_filters:hover, .clear_filters:focus {
+  border-bottom: solid 1px black;
 }
 
 /* Media queries */
