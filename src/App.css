@@ -202,7 +202,7 @@ main.content {
   cursor: pointer;
 }
 
-.list_item:hover {
+.list_item:hover, .list_item:focus-within {
   border-left-width: 5px;
 }
 
