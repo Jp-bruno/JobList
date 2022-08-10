@@ -31,7 +31,7 @@ export default function ListItem({ data, addFilter, filters }: ListItemProps) {
             <>
                 <li className='list_item'>
                     <div className='list_item_content_wrapper'>
-                        <img src={'/JobList' + data.logo} height='80px' alt='imagem_vaga'></img>
+                        <img src={'/JobList' + data.logo} height='80px' alt='imagem_vaga' className='company_logo' />
 
                         <div className='list_item_job_description'>
                             <span className='list_item_title'>
